@@ -1459,26 +1459,86 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 1.2rem;
+    /* Mobile Menu Styles */
+    .menu-toggle {
+        display: block; /* Show hamburger button */
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        order: 3; /* Reorder to sit nicely */
+        margin-left: auto; /* Push to right side */
+        padding: 0.5rem;
     }
 
-    .nav-container {
-        margin-top: 1.2rem;
-        width: 100%;
-        justify-content: space-between;
-    }
-
+    /* Hidden by default on mobile */
     .nav-links {
-        margin-right: 0;
-        margin-top: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        position: absolute;
+        top: 100%; /* Position right below the nav */
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        margin: 0;
+    }
+
+    /* Class to show menu when toggled */
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-item {
-        margin: 0.5rem 1rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-item a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /* Adjust Language Switcher on Mobile */
+    .language-switcher {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        order: 4;
+    }
+    
+    .language-list {
+        position: static; /* Make dropdown static inside mobile menu */
+        box-shadow: none;
+        border: none;
+        background: var(--bg-light);
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none; /* Hidden by default, toggled on hover */
+    }
+    
+    .language-switcher:hover .language-list {
+        display: block; /* Show on hover */
+    }
+
+    /* Reset layout styles for content */
+    nav {
+        flex-wrap: wrap;
+        padding: 1.2rem;
     }
 
     .hero {
@@ -1513,15 +1573,13 @@ textarea.form-control {
         left: 0;
     }
     
-    .profile-layout {
-        flex-direction: column;
-        text-align: center;
+    main {
+        margin-left: 0;
     }
     
-    .profile-image-wrapper {
-        order: -1; /* Show image first on mobile */
-        flex: 0 0 auto;
-        margin-bottom: 2rem;
+    /* Hide sidebar on mobile completely */
+    .social-sidebar {
+        display: none !important;
     }
 }
 
@@ -1529,12 +1587,6 @@ textarea.form-control {
     .nav-links {
         flex-direction: column;
         align-items: center;
-    }
-
-    .nav-item {
-        margin: 0.5rem 0;
-        width: 100%;
-        text-align: center;
     }
 
     .hero h1 {
