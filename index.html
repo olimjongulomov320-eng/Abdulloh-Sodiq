@@ -26,6 +26,8 @@
             align-items: center;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
         }
+      
+
 
         .social-icons-group {
             margin-top: 100px; 
@@ -55,10 +57,7 @@
         }
 
         /* 2. Header: Fixed Top, but shifted right to clear sidebar */
-        header {
-            left: 80px; 
-        }
-
+        
         nav {
             max-width: calc(1200px - 80px); 
         }
@@ -156,8 +155,14 @@
     <header>
         <nav>
             <a href="index.html" class="logo">Abdulloh Sodiq</a>
+            
+            <!-- NEW: Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <div class="nav-container">
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li class="nav-item"><a href="biography.html" data-translate="bioLink">Biography</a></li>
                     <li class="nav-item"><a href="news.html" data-translate="newsLink">News</a></li>
                     <li class="nav-item"><a href="videos.html" data-translate="vidsLink">Videos</a></li>
@@ -172,6 +177,8 @@
                     </li>
                     <li class="nav-item"><a href="contact.html" data-translate="contactLink">Contact</a></li>
                 </ul>
+                
+                <!-- Language Switcher (Hidden on mobile usually, but kept here) -->
                 <div class="language-switcher">
                     <button class="language-button">
                         <span class="current-language">English</span>
@@ -186,6 +193,7 @@
             </div>
         </nav>
     </header>
+
 
     <main>
         <!-- Hero Section -->
@@ -319,7 +327,32 @@ collaborations.</p>
             <p class="copyright">&copy; 2023 Abdulloh Sodiq. <span data-translate="rights">All rights reserved.</span></p>
         </div>
     </footer>
+  <!-- ... footer code ... -->
 
     <script src="translations.js"></script>
+    
+    <!-- NEW: Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <script src="translations.js"></script>
+
 </body>
 </html>
