@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulloh Sodiq - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* --- Layout Structure: Sidebar + Header --- */
+        
+        /* 1. Social Sidebar: Fixed Far Left, Full Height */
+        .social-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh; 
+            width: 80px;
+            background-color: var(--bg-white);
+            border-right: 1px solid var(--border-color);
+            z-index: 1001; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .social-icons-group {
+            margin-top: 100px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0.8rem 0;
+            color: var(--text-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-icon i {
+            font-size: 1.2rem;
+        }
+
+        /* 2. Header: Fixed Top, but shifted right to clear sidebar */
+        header {
+            left: 80px; 
+        }
+
+        nav {
+            max-width: calc(1200px - 80px); 
+        }
+
+        /* 3. Main Content: Shifted right to clear sidebar */
+        main {
+            margin-left: 80px;
+        }
+
+        /* --- Research Grid Styles --- */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 992px) {
+            .focus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-sidebar {
+                display: none;
+            }
+            
+            header {
+                left: 0;
+            }
+            main {
+                margin-left: 0;
+            }
+        }
+
+        .focus-item {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .focus-item:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 25px rgba(58, 123, 213, 0.08);
+        }
+
+        .focus-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .focus-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .focus-desc {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <div class="social-icons-group">
+            <a href="https://instagram.com" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Abdulloh Sodiq</a>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="biography.html" data-translate="bioLink">Biography</a></li>
+                    <li class="nav-item"><a href="news.html" data-translate="newsLink">News</a></li>
+                    <li class="nav-item"><a href="videos.html" data-translate="vidsLink">Videos</a></li>
+                    <li class="nav-item"><a href="conferences.html" data-translate="confLink">Conferences</a></li>
+                    <li class="nav-item">
+                        <a href="publications.html" data-translate="pubsLink">Publications</a>
+                        <ul class="submenu">
+                            <li><a href="books.html">Books</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="papers.html">Research Papers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="contact.html" data-translate="contactLink">Contact</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-button">
+                        <span class="current-language">English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-list">
+                        <a href="#" class="language-option active" data-lang="en">English</a>
+                        <a href="#" class="language-option" data-lang="ru">Русский</a>
+                        <a href="#" class="language-option" data-lang="uz">O'zbek</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="profile-image-container">
+                    <img src="ChatGPT Image Mar 31, 2026 at 12_45_45 PM.png" alt="Profile" class="profile-image">
+                </div>
+                <div class="hero-content">
+                    <h1 data-translate="name">Abdulloh Sodiq</h1>
+                    <h2>
+                        <span data-translate="title1">Doctor of Law, Professor</span>
+                        <span data-translate="title2">Senior Research Fellow</span>
+                    </h2>
+                    <p data-translate="description">Exploring the intersections of law, technology, and society. Dedicated to advancing knowledge through research, teaching, and meaningful 
+collaborations.</p>
+                    <div class="hero-buttons">
+                        <a href="biography.html" class="btn btn-primary" data-translate="aboutBtn">About Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Focus Section -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="content-container">
+                <h2 class="section-title" style="text-align: center; display: block; width: 100%;" data-translate="bioResearch">Research Interests</h2>
+                
+                <div class="focus-grid">
+                    <!-- Card 1 -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="focus-title" data-translate="research1Title">Digital Rights & Privacy</h3>
+                        <p class="focus-desc" data-translate="research1Desc">Exploring legal frameworks for protecting individual privacy in the digital age.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-microchip"></i></div>
+                        <h3 class="focus-title" data-translate="research2Title">Technology Regulation</h3>
+                        <p class="focus-desc" data-translate="research2Desc">Analyzing regulatory approaches for emerging technologies including AI and blockchain.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-globe"></i></div>
+                        <h3 class="focus-title" data-translate="research3Title">International Technology Law</h3>
+                        <p class="focus-desc" data-translate="research3Desc">Comparative analysis of technology law approaches across different jurisdictions.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-brain"></i></div>
+                        <h3 class="focus-title" data-translate="research4Title">AI Governance & Ethics</h3>
+                        <p class="focus-desc" data-translate="research4Desc">Developing legal frameworks for responsible AI development and deployment.</p>
+                    </div>
+
+                    <!-- Card 5: Cybersecurity (FIXED) -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-lock"></i></div>
+                        <h3 class="focus-title" data-translate="research5Title">Cybersecurity Law</h3>
+                        <p class="focus-desc" data-translate="research5Desc">Addressing legal challenges in protecting critical infrastructure and combating cyber threats.</p>
+                    </div>
+
+                    <!-- Card 6: IP Rights (FIXED) -->
+                    <div class="focus-item">
+                        <div class="focus-icon"><i class="fas fa-copyright"></i></div>
+                        <h3 class="focus-title" data-translate="research6Title">Intellectual Property</h3>
+                        <p class="focus-desc" data-translate="research6Desc">Protecting creative and scientific innovations in the rapidly evolving digital landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section class="content-section" style="background-color: var(--bg-white);">
+            <div class="content-container">
+                <h2 class="section-title" style="text-align: center; display: block; width: 100%;" data-translate="latestUpdates">Latest Updates</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/news-grant/400/250.jpg" alt="News" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="news1Title">New Research Grant Awarded</h3>
+                            <p class="card-text" data-translate="news1Desc">Professor Smith has been awarded a prestigious research grant to study AI governance frameworks.</p>
+                            <a href="news.html" class="card-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/news-keynote/400/250.jpg" alt="News" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="news2Title">Keynote Speaker at Conference</h3>
+                            <p class="card-text" data-translate="news2Desc">Professor Smith delivered a keynote address on digital privacy rights in Geneva.</p>
+                            <a href="news.html" class="card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="content-container">
+                <h2 class="section-title" style="text-align: center; display: block; width: 100%;" data-translate="pubsTitle">Publications</h2>
+                
+                <div class="card-grid">
+                    <div class="card detail-card" style="border-left: 3px solid var(--primary-blue);">
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="book1Title">Artificial Intelligence and the Law</h3>
+                            <p class="card-text" data-translate="book1Desc">A comprehensive analysis of legal frameworks for AI governance.</p>
+                            <a href="publications.html" class="card-link" data-translate="viewDetails">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="card detail-card" style="border-left: 3px solid var(--primary-blue);">
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="book2Title">Digital Privacy Rights in the Information Age</h3>
+                            <p class="card-text" data-translate="book2Desc">An exploration of privacy rights in the digital era.</p>
+                            <a href="publications.html" class="card-link" data-translate="viewDetails">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Changed name here -->
+            <p class="copyright">&copy; 2023 Abdulloh Sodiq. <span data-translate="rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+</body>
+</html>
